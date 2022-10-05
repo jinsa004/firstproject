@@ -17,4 +17,9 @@ public class ResumeService {
         resumeDao.insert(resume);
     }
 
+    public void 이력서수정(Integer resumeId, Resume resume){
+        resumeDao.findById(resumeId);
+        resumeDao.update(resumeId, resume);
+    }
+
 }
