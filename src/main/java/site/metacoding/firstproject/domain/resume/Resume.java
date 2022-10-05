@@ -2,6 +2,11 @@ package site.metacoding.firstproject.domain.resume;
 
 import java.sql.Timestamp;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public class Resume {
     private Integer resumeId;
     private String resumeName;
