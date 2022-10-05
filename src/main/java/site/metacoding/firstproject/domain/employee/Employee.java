@@ -13,8 +13,7 @@ public class Employee {
 	private String employeeUsername;
 	private String employeePassword;
 	private String employeeEmail;
-	private String employeeAddress;
 	private Integer employeeTel;
-	private Integer locationId;
-	private Integer areaId;
+	private Integer employeeLocation;
+	private Integer jobId;
 }
