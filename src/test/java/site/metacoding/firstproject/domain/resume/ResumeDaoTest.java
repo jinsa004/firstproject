@@ -57,7 +57,7 @@ public class ResumeDaoTest {
 	 * }
 	 */
 
-	@Test
+/* 	@Test
 	public void updateTest() {
 		// given
 		Integer resumeId = 1;
@@ -79,6 +79,6 @@ public class ResumeDaoTest {
 
 		// then
 		assertEquals(1, result);
-	}
+	} */
 
 }

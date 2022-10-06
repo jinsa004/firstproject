@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
 import site.metacoding.firstproject.domain.resume.Resume;
 import site.metacoding.firstproject.domain.resume.ResumeDao;
-import site.metacoding.firstproject.web.dto.resume.response.UpdateDto;
+import site.metacoding.firstproject.web.dto.resume.request.UpdateDto;
 
 @RequiredArgsConstructor
 @Service
@@ -22,10 +22,10 @@ public class ResumeService {
         resumeDao.insert(resume);
     }
 
-    public Resume 이력서수정(Integer resumeId, UpdateDto updateDto) {
+    public void 이력서수정(Integer resumeId, UpdateDto updateDto) {
         Resume resumePS = resumeDao.findById(resumeId);
         resumePS.update(updateDto);
-        return resumePS;
+        resumeDao.update(resumePS);
     }
 
 }

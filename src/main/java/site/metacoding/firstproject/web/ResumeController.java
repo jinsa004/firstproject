@@ -6,11 +6,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.RequiredArgsConstructor;
 import site.metacoding.firstproject.domain.resume.Resume;
 import site.metacoding.firstproject.service.ResumeService;
-import site.metacoding.firstproject.web.dto.resume.response.UpdateDto;
+import site.metacoding.firstproject.web.dto.resume.request.UpdateDto;
+import site.metacoding.firstproject.web.dto.resume.responsse.CMRespDto;
 
 @RequiredArgsConstructor
 @Controller
@@ -37,8 +40,8 @@ public class ResumeController {
     }
 
     @PutMapping("/resume/{resumeId}/update")
-    public String updateResume(@PathVariable Integer resumeId, UpdateDto updateDto) {
+    public @ResponseBody CMRespDto<?> updateResume(@PathVariable Integer resumeId, @RequestBody UpdateDto updateDto) {
         resumeService.이력서수정(resumeId, updateDto);
-        return "/";
+        return new CMRespDto<>(1, "이력서 수정 성공", null);
     }
 }

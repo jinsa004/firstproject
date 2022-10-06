@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import site.metacoding.firstproject.web.dto.resume.response.UpdateDto;
+import site.metacoding.firstproject.web.dto.resume.request.UpdateDto;
 
 @AllArgsConstructor
 @Setter
@@ -39,18 +39,10 @@ public class Resume {
         this.jobId = jobId;
     }
 
-    /*
-     * public void update(UpdateDto updateDto) {
-     * this.resumeName = updateDto.getResumeName();
-     * this.employeeId = updateDto.getEmployeeId();
-     * this.jobId = updateDto.getJobId();
-     * }
-     */
-
-    public void update(Resume resume) {
-        this.resumeName = resumeName;
-        this.employeeId = employeeId;
-        this.jobId = jobId;
+    public void update(UpdateDto updateDto) {
+        this.resumeName = updateDto.getResumeName();
+        this.employeeId = updateDto.getEmployeeId();
+        this.jobId = updateDto.getJobId();
     }
 
 }
