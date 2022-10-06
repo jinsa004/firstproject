@@ -1,4 +1,4 @@
-package site.metacoding.testproject.domain.resume;
+package site.metacoding.firstproject.domain.resume;
 
 import java.util.List;
 

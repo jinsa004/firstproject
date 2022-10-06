@@ -1,4 +1,4 @@
-package site.metacoding.testproject.domain.intro;
+package site.metacoding.firstproject.domain.intro;
 
 import java.util.List;
 

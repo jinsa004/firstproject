@@ -1,4 +1,4 @@
-package site.metacoding.testproject.domain.subscribe;
+package site.metacoding.firstproject.domain.subscribe;
 
 import lombok.Getter;
 import lombok.Setter;

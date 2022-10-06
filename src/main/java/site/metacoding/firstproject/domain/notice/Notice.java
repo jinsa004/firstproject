@@ -1,4 +1,4 @@
-package site.metacoding.testproject.domain.notice;
+package site.metacoding.firstproject.domain.notice;
 
 import lombok.Getter;
 import lombok.Setter;
