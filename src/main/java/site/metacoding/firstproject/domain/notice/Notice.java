@@ -1,8 +1,10 @@
 package site.metacoding.firstproject.domain.notice;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@NoArgsConstructor
 @Setter
 @Getter
 public class Notice {
@@ -11,7 +13,7 @@ public class Notice {
     private String noticeTitle;
     private String noticeConame;
     private String noticeImage;
-    private String noticePeriod;
+    private Integer noticePeriod;
     private String noticeDept;
     private String noticePosition;
     private String noticeTask;
