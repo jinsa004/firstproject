@@ -5,7 +5,7 @@ import java.util.List;
 public interface NoticeDao {
     public List<Notice> findAll();
 
-    public List<Notice> findByJobNotice();
+    public List<Notice> findByJobNotice(Integer jobCode);
 
     public Notice findById(Integer id);
 

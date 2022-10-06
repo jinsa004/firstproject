@@ -16,4 +16,8 @@ public class NoticeService {
     public List<Notice> 채용공고목록보기() {
         return noticeDao.findAll();
     }
+
+    public List<Notice> 채용공고분야별목록보기(Integer jobCode) {
+        return noticeDao.findByJobNotice(jobCode);
+    }
 }

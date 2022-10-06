@@ -16,14 +16,14 @@
 
     <select id="findByJobNotice" resultType="site.metacoding.firstproject.domain.notice.Notice">
         SELECT
-        n.notice_title,n.notice_coname, n.noti  ce_image, n.notice_task, n.notice_qual,
+        n.notice_title,n.notice_coname, n.notice_image, n.notice_task, n.notice_qual,
         n.notice_position,n.notice_sal, n.notice_period,
         j.job_code
-        FROM notice
+        FROM notice n
         INNER JOIN job j
         ON n.job_id = j.job_id
-        WEHRE n.job_code = #{jobCode}
-        ORDER BY created_at DESC;
+        WHERE j.job_code = #{jobCode}
+        ORDER BY n.notice_period DESC;
     </select>
 
     <select id="findById" resultType="site.metacoding.firstproject.domain.notice.Notice"></select>
