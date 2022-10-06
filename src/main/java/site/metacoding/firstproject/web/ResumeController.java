@@ -39,6 +39,7 @@ public class ResumeController {
         return "/resume/updateForm";
     }
 
+    
     @PutMapping("/resume/{resumeId}/update")
     public @ResponseBody CMRespDto<?> updateResume(@PathVariable Integer resumeId, @RequestBody UpdateDto updateDto) {
         resumeService.이력서수정(resumeId, updateDto);

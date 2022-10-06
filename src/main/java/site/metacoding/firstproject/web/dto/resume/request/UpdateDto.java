@@ -8,6 +8,7 @@ import lombok.Setter;
 @Getter
 public class UpdateDto {
     private String resumeName;
+	private Integer employeeId;
     private String resumeImage;
     private String highschoolName;
     private Integer highschoolStartdate;

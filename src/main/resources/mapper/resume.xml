@@ -22,6 +22,7 @@ WHERE resume_id=#{resumeId}
 <update id="update">
 UPDATE resume SET 
 resume_name = #{resumeName}, 
+employee_id = #{employeeId}, 
 resume_image = #{resumeImage}, 
 highschool_name = #{highschoolName}, 
 highschool_startdate = #{highschoolStartdate}, 

@@ -38,7 +38,7 @@ public class Resume {
 
     public void update(UpdateDto updateDto) {
         this.resumeName = updateDto.getResumeName();
-        this.jobId = updateDto.getJobId();
+        this.employeeId = updateDto.getEmployeeId();       
         this.resumeImage = updateDto.getResumeImage();
         this.highschoolName = updateDto.getHighschoolName();
         this.highschoolStartdate = updateDto.getHighschoolStartdate();
@@ -54,5 +54,6 @@ public class Resume {
         this.careerPosition = updateDto.getCareerPosition();
         this.careerDepartment = updateDto.getCareerDepartment();
         this.careerTask = updateDto.getCareerTask();
+        this.jobId = updateDto.getJobId();
     }
 }

@@ -21,6 +21,14 @@ uri="http://java.sun.com/jsp/jstl/core"%>
             </div>
             <div class="mb-3 mt-3">
                 <input
+                    id="employeeId"
+                    type="text"
+                    class="form-control"
+                    value="${resumePS.employeeId}"
+                />
+            </div>
+            <div class="mb-3 mt-3">
+                <input
                     id="jobId"
                     type="text"
                     class="form-control"
@@ -40,8 +48,10 @@ uri="http://java.sun.com/jsp/jstl/core"%>
             function update() {
                 let data = {
                     resumeName: $("#resumeName").val(),
+                    employeeId: $("#employeeId").val(),
                     jobId: $("#jobId").val(),
                 };
+                console.log(data.employeeId);
 
                 let resumeId = $("#resumeId").val();
 
