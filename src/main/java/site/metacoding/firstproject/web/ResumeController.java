@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import lombok.RequiredArgsConstructor;
 import site.metacoding.firstproject.domain.resume.Resume;
 import site.metacoding.firstproject.service.ResumeService;
+import site.metacoding.firstproject.web.dto.resume.response.UpdateDto;
 
 @RequiredArgsConstructor
 @Controller
@@ -36,8 +37,8 @@ public class ResumeController {
     }
 
     @PutMapping("/resume/{resumeId}/update")
-    public String updateResume(@PathVariable Integer resumeId, Resume resume) {
-        resumeService.이력서수정(resumeId, resume);
+    public String updateResume(@PathVariable Integer resumeId, UpdateDto updateDto) {
+        resumeService.이력서수정(resumeId, updateDto);
         return "/";
     }
 }

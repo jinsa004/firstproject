@@ -41,18 +41,44 @@ public class ResumeDaoTest {
 	 * }
 	 */
 
-	@Test
-	public void findByIdTest() {
+	/*
+	 * @Test
+	 * public void findByIdTest() {
+	 * 
+	 * // given
+	 * Integer resumeId = 1;
+	 * 
+	 * // when
+	 * 
+	 * Resume resume = resumeDao.findById(resumeId);
+	 * 
+	 * // then
+	 * assertEquals("영운고", resume.getHighschoolName());
+	 * }
+	 */
 
+	@Test
+	public void updateTest() {
 		// given
 		Integer resumeId = 1;
+		String resumeName = "이력서애오";
+		Integer employeeId = 2;
+		Integer jobId = 2;
 
 		// when
+		Resume resume = new Resume(resumeName, employeeId, jobId);
+		resume.setResumeId(resumeId);
 
-		Resume resume = resumeDao.findById(resumeId);
+		Resume resumePS = resumeDao.findById(resume.getResumeId());
+		assertTrue(resumePS == null ? false : true);
+
+		resumePS.update(resume);
+
+		int result = resumeDao.update(resumePS);
+		System.out.println(resume.getResumeName());
 
 		// then
-		assertEquals("영운고", resume.getHighschoolName());
+		assertEquals(1, result);
 	}
 
 }

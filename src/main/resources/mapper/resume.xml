@@ -18,4 +18,10 @@ FROM resume
 WHERE resume_id=#{resumeId}
 </select>
 
+
+    <update id="update">
+         UPDATE resume SET resume_name = #{resumeName}, employee_id = #{employeeId}, 
+job_id = #{jobId} WHERE resume_id = #{resumeId}; 
+    </update>
+
 </mapper>
