@@ -1,6 +1,6 @@
 package site.metacoding.firstproject.web.dto.resume.request;
 
-import lombok.AllArgsConstructor;
+
 import lombok.Getter;
 import lombok.Setter;
 

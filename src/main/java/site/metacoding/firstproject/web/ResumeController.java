@@ -21,15 +21,15 @@ public class ResumeController {
 
     private final ResumeService resumeService;
 
-    @GetMapping("/resume/insert")
+    @GetMapping("/resume/insertForm")
     public String resumeInsertForm() {
-        return "resume/insert";
+        return "resume/insertForm";
     }
 
     @PostMapping("/resume/insert")
-    public String insertResume(Resume resume) {
+    public @ResponseBody CMRespDto<?> insertResume(@RequestBody Resume resume) {
         resumeService.이력서작성(resume);
-        return "redirect:/";
+        return new CMRespDto<>(1, "이력서 등록 성공", null);
     }
 
     @GetMapping("/resume/{resumeId}/updateForm")

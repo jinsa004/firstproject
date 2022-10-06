@@ -4,9 +4,11 @@ import java.sql.Timestamp;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import site.metacoding.firstproject.web.dto.resume.request.UpdateDto;
 
+@NoArgsConstructor
 @AllArgsConstructor
 @Setter
 @Getter
@@ -32,17 +34,6 @@ public class Resume {
     private Integer jobId;
     private boolean isMain;
     private Timestamp createdAt;
-
-    public Resume(String resumeName, Integer employeeId, Integer jobId) {
-        this.resumeName = resumeName;
-        this.employeeId = employeeId;
-        this.jobId = jobId;
-    }
-
     public void update(UpdateDto updateDto) {
-        this.resumeName = updateDto.getResumeName();
-        this.employeeId = updateDto.getEmployeeId();
-        this.jobId = updateDto.getJobId();
     }
-
 }
