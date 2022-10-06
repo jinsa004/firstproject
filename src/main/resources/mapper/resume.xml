@@ -5,15 +5,25 @@
     <insert id="insert"></insert>
 
     <select id="findAllResume" resultType="site.metacoding.firstproject.domain.resume.Resume">
-        SELECT
-        r.resume_name, r.employee_id, j.job_name
+        SELECT r.resume_name, e.employee_name, j.job_name, r.created_at
         FROM resume r
-        INNER JOIN job j
-        ON r.job_id = j.job_id
-        ORDER BY created_at DESC;
+        JOIN employee e
+        ON r.employee_id=e.employee_id
+        JOIN job j
+        ON r.job_id=j.job_id
+        ORDER BY r.created_at DESC
     </select>
 
-    <select id="findByJobToResume" resultType="site.metacoding.firstproject.domain.resume.Resume"></select>
+    <select id="findByJobToResume" resultType="site.metacoding.firstproject.domain.resume.Resume">
+    SELECT r.resume_name, e.employee_name, j.job_name, r.created_at
+    FROM resume r
+    JOIN employee e
+    ON r.employee_id=e.employee_id
+    JOIN job j
+    ON r.job_id=j.job_id
+    WEHRE j.job_code = #{jobCode}
+    ORDER BY r.created_at DESC
+    </select>
 
     <select id="findById" resultType="site.metacoding.firstproject.domain.resume.Resume"></select>
 

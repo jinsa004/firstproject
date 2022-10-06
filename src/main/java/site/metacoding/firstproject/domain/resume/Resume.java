@@ -32,4 +32,5 @@ public class Resume {
 
     // 엔티티가 아닌 필드
     private String jobName;
+    private String employeeName;
 }

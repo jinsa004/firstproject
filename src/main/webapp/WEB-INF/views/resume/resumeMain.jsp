@@ -17,16 +17,18 @@
             <thead>
                 <tr>
                     <th>제목</th>
-                    <th>지원자id</th>
+                    <th>지원자명</th>
                     <th>직군</th>
+                    <th>작성일</th>
                 </tr>
             </thead>
             <tbody>
                 <c:forEach var="resumeListPS" items="${resumeListPS}">
                     <tr>
                         <td><a href=#>${resumeListPS.resumeName}</a></td>
-                        <td>${resumeListPS.employeeId}</td>
+                        <td>${resumeListPS.employeeName}</td>
                         <td>${resumeListPS.jobName}</td>
+                        <td>${resumeListPS.createdAt}</td>
                     </tr>
                 </c:forEach>
             </tbody>
