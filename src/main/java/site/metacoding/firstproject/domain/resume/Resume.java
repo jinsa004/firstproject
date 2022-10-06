@@ -8,6 +8,14 @@ import lombok.Setter;
 @Setter
 @Getter
 public class Resume {
+
+    public Resume(String resumeName, Integer employeeId, Integer jobId, boolean isMain) {
+        this.resumeName = resumeName;
+        this.employeeId = employeeId;
+        this.jobId = jobId;
+        this.isMain = isMain;
+    }
+
     private Integer resumeId;
     private String resumeName;
     private Integer employeeId;
@@ -20,7 +28,7 @@ public class Resume {
     private Integer univStartdate;
     private Integer univEnddate;
     private String univMajor;
-    private float univGrade;
+    private float univGrades;
     private String prevCo;
     private String careerPeriod;
     private String careerPosition;
