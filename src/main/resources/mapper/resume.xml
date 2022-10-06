@@ -21,7 +21,7 @@
     ON r.employee_id=e.employee_id
     JOIN job j
     ON r.job_id=j.job_id
-    WEHRE j.job_code = #{jobCode}
+    WHERE j.job_code = #{jobCode}
     ORDER BY r.created_at DESC
     </select>
 

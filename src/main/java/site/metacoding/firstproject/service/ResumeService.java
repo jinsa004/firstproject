@@ -16,4 +16,8 @@ public class ResumeService {
     public List<Resume> 이력서목록보기() {
         return resumeDao.findAllResume();
     }
+
+    public List<Resume> 채용공고분야별목록보기(Integer jobCode) {
+        return resumeDao.findByJobToResume(jobCode);
+    }
 }

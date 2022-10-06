@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import lombok.RequiredArgsConstructor;
 import site.metacoding.firstproject.domain.resume.Resume;
@@ -20,5 +21,12 @@ public class ResumeController {
         List<Resume> resumeListPS = resumeService.이력서목록보기();
         model.addAttribute("resumeListPS", resumeListPS);
         return "resume/resumeMain";
+    }
+
+    @GetMapping("/company/resume")
+    public String getNoticeFrontend(@RequestParam("jobCode") Integer jobCode, Model model) {
+        List<Resume> resumeJobListPS = resumeService.채용공고분야별목록보기(jobCode);
+        model.addAttribute("resumeJobListPS", resumeJobListPS);
+        return "resume/resumeJob";
     }
 }
