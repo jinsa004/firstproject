@@ -29,4 +29,7 @@ public class Resume {
     private Integer jobId;
     private boolean isMain;
     private Timestamp createdAt;
+
+    // 엔티티가 아닌 필드
+    private String jobName;
 }
