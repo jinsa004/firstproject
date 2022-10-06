@@ -8,13 +8,12 @@ import lombok.Setter;
 public class Employee {
 	private Integer employeeId;
 	private String employeeName;
-	private String employeeSex;
 	private String employeeBirth;
+	private String employeeSex;
 	private String employeeUsername;
 	private String employeePassword;
 	private String employeeEmail;
-	private String employeeAddress;
-	private Integer employeeTel;
-	private Integer locationId;
-	private Integer areaId;
+	private String employeeLocation;
+	private String employeeTel;
+	private Integer jobId;
 }
