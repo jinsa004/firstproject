@@ -2,9 +2,11 @@ package site.metacoding.firstproject.domain.resume;
 
 import java.sql.Timestamp;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+@AllArgsConstructor
 @Setter
 @Getter
 public class Resume {

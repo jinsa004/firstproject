@@ -1,6 +1,7 @@
 package site.metacoding.firstproject.web;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,6 +26,13 @@ public class ResumeController {
     public String insertResume(Resume resume) {
         resumeService.이력서작성(resume);
         return "redirect:/";
+    }
+
+    @GetMapping("/resume/{resumeId}/updateForm")
+    public String resumeUpdateForm(Integer resumeId, Model model) {
+        Resume resumePS = resumeService.이력서한건보기(resumeId);
+        model.addAttribute("resumePS", resumePS);
+        return "/resume/updateForm";
     }
 
     @PutMapping("/resume/{resumeId}/update")

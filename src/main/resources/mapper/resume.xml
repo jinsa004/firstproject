@@ -10,4 +10,12 @@ univ_name, univ_startdate, univ_enddate, univ_major, univ_grades, prev_co, caree
 VALUES(#{resumeName}, #{employeeId}, #{resumeImage}, #{highschoolName}, #{highschoolStartdate}, #{highschoolEnddate},  #{highschoolMajor}, #{univName}, #{univStartdate}, #{univEnddate}, #{univMajor}, #{univGrades}, #{prevCo}, #{careerPeriod}, #{careerPosition}, #{careerDepartment}, #{careerTask}, 1, 0, NOW());
 </insert>
 
+
+
+<select id="findById" resultType="site.metacoding.firstproject.domain.resume.Resume">
+SELECT *
+FROM resume
+WHERE resume_id=#{resumeId}
+</select>
+
 </mapper>

@@ -7,7 +7,7 @@ public interface ResumeDao {
 
     public Resume findById(Integer resumeId);
 
-    public int insert(Resume resume);
+    public void insert(Resume resume);
 
     public void update(Integer resumeId, Resume resume);
 

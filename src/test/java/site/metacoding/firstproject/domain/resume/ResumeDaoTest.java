@@ -21,22 +21,38 @@ public class ResumeDaoTest {
 	@Autowired
 	private ResumeDao resumeDao;
 
+	/*
+	 * @Test
+	 * public void insert_test() {
+	 * // given
+	 * String resumeName = "이력서";
+	 * Integer employeeId = 1;
+	 * Integer jobId = 1;
+	 * boolean isMain = true;
+	 * Resume resume = new Resume(resumeName, employeeId, jobId, isMain);
+	 * 
+	 * // when
+	 * int result = resumeDao.insert(resume);
+	 * System.out.println(resume.getResumeName());
+	 * 
+	 * // then
+	 * assertEquals(1, result);
+	 * 
+	 * }
+	 */
+
 	@Test
-	public void insert_test() {
+	public void findByIdTest() {
+
 		// given
-		String resumeName = "이력서";
-		Integer employeeId = 1;
-		Integer jobId = 1;
-		boolean isMain = true;
-		Resume resume = new Resume(resumeName, employeeId, jobId, isMain);
+		Integer resumeId = 1;
 
 		// when
-		int result = resumeDao.insert(resume);
-		System.out.println(resume.getResumeName());
+
+		Resume resume = resumeDao.findById(resumeId);
 
 		// then
-		assertEquals(1, result);
-
+		assertEquals("영운고", resume.getHighschoolName());
 	}
 
 }
