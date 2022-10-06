@@ -29,7 +29,7 @@ public class ResumeController {
     }
 
     @GetMapping("/resume/{resumeId}/updateForm")
-    public String resumeUpdateForm(Integer resumeId, Model model) {
+    public String resumeUpdateForm(@PathVariable Integer resumeId, Model model) {
         Resume resumePS = resumeService.이력서한건보기(resumeId);
         model.addAttribute("resumePS", resumePS);
         return "/resume/updateForm";

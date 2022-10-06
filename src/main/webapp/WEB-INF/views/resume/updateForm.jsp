@@ -8,40 +8,34 @@ uri="http://java.sun.com/jsp/jstl/core"%>
         <title>Insert title here</title>
     </head>
     <body>
-        <form action="/resume/update" method="post">
+        <form>
             <div class="mb-3 mt-3">
                 <input
-                    name="resumeName"
+                    id="resumeName"
                     type="text"
                     class="form-control"
-                    placeholder="Enter title"
+                    value="${resumePS.resumeName}"
                 />
             </div>
             <div class="mb-3 mt-3">
                 <input
-                    name="employeeId"
+                    id="employeeId"
                     type="text"
                     class="form-control"
-                    placeholder="Enter title"
+                    value="${resumePS.employeeId}"
                 />
             </div>
             <div class="mb-3 mt-3">
                 <input
-                    name="jobId"
+                    id="jobId"
                     type="text"
                     class="form-control"
-                    placeholder="Enter title"
+                    value="${resumePS.jobId}"
                 />
             </div>
-            <div class="mb-3 mt-3">
-                <input
-                    name="isMain"
-                    type="text"
-                    class="form-control"
-                    placeholder="Enter title"
-                />
-            </div>
-            <button type="submit" class="btn btn-primary">완료</button>
+            <button id="btnUpdate" type="button" class="btn btn-primary">
+                수정
+            </button>
         </form>
     </body>
 </html>
