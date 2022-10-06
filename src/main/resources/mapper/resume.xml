@@ -19,9 +19,26 @@ WHERE resume_id=#{resumeId}
 </select>
 
 
-    <update id="update">
-         UPDATE resume SET resume_name = #{resumeName}, employee_id = #{employeeId}, 
-job_id = #{jobId} WHERE resume_id = #{resumeId}; 
-    </update>
+<update id="update">
+UPDATE resume SET 
+resume_name = #{resumeName}, 
+resume_image = #{resumeImage}, 
+highschool_name = #{highschoolName}, 
+highschool_startdate = #{highschoolStartdate}, 
+highschool_enddate = #{highschoolEnddate}, 
+highschool_major = #{highschoolMajor}, 
+univ_name = #{univName}, 
+univ_startdate = #{univStartdate}, 
+univ_enddate = #{univEnddate}, 
+univ_major = #{univMajor}, 
+univ_grades = #{univGrades}, 
+prev_co = #{prevCo}, 
+career_period = #{careerPeriod}, 
+career_position = #{careerPosition}, 
+career_department = #{careerDepartment}, 
+career_task = #{careerTask}, 
+job_id = #{jobId} 
+WHERE resume_id = #{resumeId}; 
+</update>
 
 </mapper>

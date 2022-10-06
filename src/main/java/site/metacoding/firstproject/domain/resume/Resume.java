@@ -34,6 +34,25 @@ public class Resume {
     private Integer jobId;
     private boolean isMain;
     private Timestamp createdAt;
+
+
     public void update(UpdateDto updateDto) {
+        this.resumeName = updateDto.getResumeName();
+        this.jobId = updateDto.getJobId();
+        this.resumeImage = updateDto.getResumeImage();
+        this.highschoolName = updateDto.getHighschoolName();
+        this.highschoolStartdate = updateDto.getHighschoolStartdate();
+        this.highschoolEnddate = updateDto.getHighschoolEnddate();
+        this.highschoolMajor = updateDto.getHighschoolMajor();
+        this.univName = updateDto.getUnivName();
+        this.univStartdate = updateDto.getUnivStartdate();
+        this.univEnddate = updateDto.getUnivEnddate();
+        this.univMajor = updateDto.getUnivMajor();
+        this.univGrades = updateDto.getUnivGrades();
+        this.prevCo = updateDto.getPrevCo();
+        this.careerPeriod = updateDto.getCareerPeriod();
+        this.careerPosition = updateDto.getCareerPosition();
+        this.careerDepartment = updateDto.getCareerDepartment();
+        this.careerTask = updateDto.getCareerTask();
     }
 }
