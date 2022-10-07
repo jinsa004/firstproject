@@ -14,7 +14,9 @@
 
 	<select id="findById"
 		resultType="site.metacoding.firstproject.domain.employee.Employee">
-
+		SELECT *
+		FROM employee
+		WHERE employee_id = #{employeeId}
 	</select>
 
 	<update id="update">

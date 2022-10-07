@@ -10,7 +10,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
     </head>
     <body>
         <form>
-            <input id="resumeId" type="hidden" value="${resumePS.resumeId}" />
+            <input id="resumeId" type="hidden" value="${resumePS.resumeId}"/>
             <div class="mb-3 mt-3">
                 <input
                     id="resumeName"

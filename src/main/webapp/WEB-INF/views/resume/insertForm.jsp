@@ -9,6 +9,11 @@ uri="http://java.sun.com/jsp/jstl/core"%>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     </head>
     <body>
+        <ul>
+            <li>${employeePS.employeeName}</li>
+            <li>${employeePS.employeeSex}</li>
+            <li>${employeePS.employeeLocation}</li>
+        </ul>
         <form>
             <div class="mb-3 mt-3">
                 <input
@@ -42,7 +47,9 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                     placeholder="Enter title"
                 />
             </div>
-            <button id="btnInsert" type="button" class="btn btn-primary">완료</button>
+            <button id="btnInsert" type="button" class="btn btn-primary">
+                완료
+            </button>
         </form>
 
         <script>
@@ -54,9 +61,9 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                 let data = {
                     resumeName: $("#resumeName").val(),
                     employeeId: $("#employeeId").val(),
-                    jobId: $("#jobId").val()
+                    jobId: $("#jobId").val(),
                 };
-                
+
                 $.ajax("/resume/insert", {
                     type: "POST",
                     dataType: "json", // 응답 데이터

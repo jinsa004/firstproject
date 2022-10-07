@@ -2,6 +2,7 @@ package site.metacoding.firstproject.web;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,7 +14,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.RequiredArgsConstructor;
+import site.metacoding.firstproject.domain.employee.Employee;
+import site.metacoding.firstproject.domain.employee.EmployeeDao;
 import site.metacoding.firstproject.domain.resume.Resume;
+import site.metacoding.firstproject.service.EmployeeService;
 import site.metacoding.firstproject.service.ResumeService;
 import site.metacoding.firstproject.web.dto.resume.request.UpdateDto;
 import site.metacoding.firstproject.web.dto.resume.responsse.CMRespDto;
@@ -23,6 +27,7 @@ import site.metacoding.firstproject.web.dto.resume.responsse.CMRespDto;
 public class ResumeController {
 
     private final ResumeService resumeService;
+    private final EmployeeService employeeService;
 
     @GetMapping("/resume/resumeList/{employeeId}")
     public String myResumeList(@PathVariable Integer employeeId, Model model) {
@@ -31,8 +36,10 @@ public class ResumeController {
         return "/resume/myResumeList";
     }
 
-    @GetMapping("/resume/insertForm")
-    public String resumeInsertForm() {
+    @GetMapping("/resume/insertForm/{employeeId}")
+    public String resumeInsertForm(@PathVariable Integer employeeId, Model model) {
+        Employee employeePS = employeeService.구직자정보보기(employeeId);
+        model.addAttribute("employeePS", employeePS);
         return "resume/insertForm";
     }
 
