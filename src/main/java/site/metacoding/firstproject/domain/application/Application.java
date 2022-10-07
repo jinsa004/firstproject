@@ -12,4 +12,9 @@ public class Application {
     private Integer resumeId;
     private Integer noticeId;
     private Timestamp createdAt;
+
+    public Application(Integer resumeId, Integer noticeId) {
+        this.resumeId = resumeId;
+        this.noticeId = noticeId;
+    }
 }

@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
+import site.metacoding.firstproject.domain.application.Application;
+import site.metacoding.firstproject.domain.application.ApplicationDao;
 import site.metacoding.firstproject.domain.resume.Resume;
 import site.metacoding.firstproject.domain.resume.ResumeDao;
 import site.metacoding.firstproject.web.dto.resume.request.UpdateDto;
@@ -14,6 +16,11 @@ import site.metacoding.firstproject.web.dto.resume.request.UpdateDto;
 public class ResumeService {
 
     private final ResumeDao resumeDao;
+    private final ApplicationDao applicationDao;
+
+    public void 지원하기(Application application) {
+        applicationDao.insert(application);
+    }
 
     public List<Resume> 내이력서가져오기(Integer employeeId) {
         List<Resume> resumePS = resumeDao.findByEmployeeId(employeeId);

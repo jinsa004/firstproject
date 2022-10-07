@@ -11,7 +11,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
     <body>
         <ul>
             <li>${employeePS.employeeName}</li>
-            <li>${employeePS.employeeSex}</li>
+            <li>${employeePS.employeeUsername}</li>
             <li>${employeePS.employeeLocation}</li>
         </ul>
         <form>

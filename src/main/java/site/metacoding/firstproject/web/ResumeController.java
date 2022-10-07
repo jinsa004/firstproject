@@ -14,8 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.RequiredArgsConstructor;
+import site.metacoding.firstproject.domain.application.Application;
+import site.metacoding.firstproject.domain.application.ApplicationDao;
 import site.metacoding.firstproject.domain.employee.Employee;
-import site.metacoding.firstproject.domain.employee.EmployeeDao;
 import site.metacoding.firstproject.domain.resume.Resume;
 import site.metacoding.firstproject.service.EmployeeService;
 import site.metacoding.firstproject.service.ResumeService;
@@ -34,6 +35,12 @@ public class ResumeController {
         List<Resume> resumePS = resumeService.내이력서가져오기(employeeId);
         model.addAttribute("resumePS", resumePS);
         return "/resume/myResumeList";
+    }
+
+    @PostMapping("/resume/applicate")
+    public String applicateByResumeId(Application application) {
+        resumeService.지원하기(application);
+        return "redirect:/";
     }
 
     @GetMapping("/resume/insertForm/{employeeId}")
