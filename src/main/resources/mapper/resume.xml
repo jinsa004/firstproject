@@ -42,4 +42,15 @@ job_id = #{jobId}
 WHERE resume_id = #{resumeId}; 
 </update>
 
+
+<select id="findByEmployeeId" resultType="site.metacoding.firstproject.domain.resume.Resume">
+SELECT *
+FROM resume
+WHERE employee_id = #{employeeId}
+</select>
+
+<delete id="deleteById">
+DELETE FROM resume WHERE resume_id = #{resumeId}
+</delete>
+
 </mapper>

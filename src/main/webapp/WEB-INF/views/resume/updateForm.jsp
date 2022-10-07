@@ -38,6 +38,9 @@ uri="http://java.sun.com/jsp/jstl/core"%>
             <button id="btnUpdate" type="button" class="btn btn-primary">
                 수정
             </button>
+            <button id="btnDelete" type="button" class="btn btn-primary">
+                삭제
+            </button>
         </form>
 
         <script>
@@ -69,6 +72,26 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                         location.href = "/";
                     } else {
                         alert("업데이트에 실패하였습니다");
+                    }
+                });
+            }
+
+            $("#btnDelete").click(() => {
+                deleteResume();
+            });
+
+            function deleteResume() {
+                let resumeId = $("#resumeId").val();
+
+                $.ajax("/resume/" + resumeId + "/delete", {
+                    type: "DELETE",
+                    dataType: "json", // 응답 데이터
+                }).done((res) => {
+                    if (res.code == 1) {
+                        alert("이력서 삭제 완료");
+                        location.href = "/";
+                    } else {
+                        alert("삭제에 실패하였습니다");
                     }
                 });
             }

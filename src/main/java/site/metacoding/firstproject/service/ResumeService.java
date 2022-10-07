@@ -1,5 +1,7 @@
 package site.metacoding.firstproject.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
@@ -13,9 +15,11 @@ public class ResumeService {
 
     private final ResumeDao resumeDao;
 
+
+
     public Resume 이력서한건보기(Integer resumeId) {
-        Resume resume = resumeDao.findById(resumeId);
-        return resume;
+        Resume resumePS = resumeDao.findById(resumeId);
+        return resumePS;
     }
 
     public void 이력서작성(Resume resume) {
@@ -26,6 +30,10 @@ public class ResumeService {
         Resume resumePS = resumeDao.findById(resumeId);
         resumePS.update(updateDto);
         resumeDao.update(resumePS);
+    }
+
+    public void 이력서삭제(Integer resumeId) {
+        resumeDao.deleteById(resumeId);
     }
 
 }

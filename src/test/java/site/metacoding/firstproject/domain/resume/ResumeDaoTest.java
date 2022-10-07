@@ -4,11 +4,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.context.annotation.Import;
+import org.springframework.test.context.TestExecutionListeners;
 import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
 
 import site.metacoding.firstproject.config.MyBatisConfig;
@@ -57,28 +59,61 @@ public class ResumeDaoTest {
 	 * }
 	 */
 
-/* 	@Test
-	public void updateTest() {
+	/*
+	 * @Test
+	 * public void updateTest() {
+	 * // given
+	 * Integer resumeId = 1;
+	 * String resumeName = "이력서애오";
+	 * Integer employeeId = 2;
+	 * Integer jobId = 2;
+	 * 
+	 * // when
+	 * Resume resume = new Resume(resumeName, employeeId, jobId);
+	 * resume.setResumeId(resumeId);
+	 * 
+	 * Resume resumePS = resumeDao.findById(resume.getResumeId());
+	 * assertTrue(resumePS == null ? false : true);
+	 * 
+	 * resumePS.update(resume);
+	 * 
+	 * int result = resumeDao.update(resumePS);
+	 * System.out.println(resume.getResumeName());
+	 * 
+	 * // then
+	 * assertEquals(1, result);
+	 * }
+	 */
+
+	/*
+	 * @Test
+	 * public void deleteByIdTest() {
+	 * // given
+	 * Integer resumeId = 1;
+	 * 
+	 * // verify
+	 * Resume resumePS = resumeDao.findById(resumeId);
+	 * assertTrue(resumePS == null ? false : true);
+	 * 
+	 * // when
+	 * int result = resumeDao.deleteById(resumeId);
+	 * 
+	 * // then
+	 * assertEquals(1, result);
+	 * 
+	 * }
+	 */
+
+/*  	@Test
+	public void findByEmployeeIdTest() {
+
 		// given
-		Integer resumeId = 1;
-		String resumeName = "이력서애오";
-		Integer employeeId = 2;
-		Integer jobId = 2;
+		Integer employeeId = 1;
 
 		// when
-		Resume resume = new Resume(resumeName, employeeId, jobId);
-		resume.setResumeId(resumeId);
-
-		Resume resumePS = resumeDao.findById(resume.getResumeId());
-		assertTrue(resumePS == null ? false : true);
-
-		resumePS.update(resume);
-
-		int result = resumeDao.update(resumePS);
-		System.out.println(resume.getResumeName());
+		List<Resume> resumePS = resumeDao.findByEmployeeId(employeeId);
 
 		// then
-		assertEquals(1, result);
+		assertEquals(2, resumePS.size());
 	} */
-
 }

@@ -1,7 +1,10 @@
 package site.metacoding.firstproject.web;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,6 +24,8 @@ public class ResumeController {
 
     private final ResumeService resumeService;
 
+
+
     @GetMapping("/resume/insertForm")
     public String resumeInsertForm() {
         return "resume/insertForm";
@@ -39,10 +44,15 @@ public class ResumeController {
         return "/resume/updateForm";
     }
 
-    
     @PutMapping("/resume/{resumeId}/update")
     public @ResponseBody CMRespDto<?> updateResume(@PathVariable Integer resumeId, @RequestBody UpdateDto updateDto) {
         resumeService.이력서수정(resumeId, updateDto);
         return new CMRespDto<>(1, "이력서 수정 성공", null);
+    }
+
+    @DeleteMapping("/resume/{resumeId}/delete")
+    public @ResponseBody CMRespDto<?> deleteResume(@PathVariable Integer resumeId) {
+        resumeService.이력서삭제(resumeId);
+        return new CMRespDto<>(1, "이력서 삭제 성공", null);
     }
 }

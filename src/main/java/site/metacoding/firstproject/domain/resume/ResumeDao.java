@@ -13,4 +13,6 @@ public interface ResumeDao {
 
     public void deleteById(Integer resumeId);
 
+    public List<Resume> findByEmployeeId(Integer employeeId);
+
 }
