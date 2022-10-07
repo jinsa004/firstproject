@@ -15,7 +15,10 @@ public class ResumeService {
 
     private final ResumeDao resumeDao;
 
-
+    public List<Resume> 내이력서가져오기(Integer employeeId) {
+        List<Resume> resumePS = resumeDao.findByEmployeeId(employeeId);
+        return resumePS;
+    }
 
     public Resume 이력서한건보기(Integer resumeId) {
         Resume resumePS = resumeDao.findById(resumeId);

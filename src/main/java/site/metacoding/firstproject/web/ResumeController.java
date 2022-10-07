@@ -24,7 +24,12 @@ public class ResumeController {
 
     private final ResumeService resumeService;
 
-
+    @GetMapping("/resume/resumeList/{employeeId}")
+    public String myResumeList(@PathVariable Integer employeeId, Model model) {
+        List<Resume> resumePS = resumeService.내이력서가져오기(employeeId);
+        model.addAttribute("resumePS", resumePS);
+        return "/resume/myResumeList";
+    }
 
     @GetMapping("/resume/insertForm")
     public String resumeInsertForm() {
