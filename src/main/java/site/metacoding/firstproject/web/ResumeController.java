@@ -2,7 +2,6 @@ package site.metacoding.firstproject.web;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.RequiredArgsConstructor;
 import site.metacoding.firstproject.domain.application.Application;
-import site.metacoding.firstproject.domain.application.ApplicationDao;
 import site.metacoding.firstproject.domain.employee.Employee;
 import site.metacoding.firstproject.domain.resume.Resume;
 import site.metacoding.firstproject.service.EmployeeService;
