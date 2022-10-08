@@ -21,7 +21,6 @@ public class ResumeService {
 
     @Transactional
     public void 메인이력서등록(Integer resumeId) {
-        resumeDao.setAllIsMainFalse(resumeId);
         resumeDao.updateMain(resumeId);
     }
 

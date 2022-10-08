@@ -31,11 +31,6 @@ public class ResumeController {
     private final EmployeeService employeeService;
 
 
-    @GetMapping("/doro")
-    public String doroAPI() {
-        return "/address/jusoPopup";
-    }
-
 
 
     @GetMapping("/resume/myResumeList/{employeeId}")
