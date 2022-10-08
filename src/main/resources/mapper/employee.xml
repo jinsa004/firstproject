@@ -5,11 +5,14 @@
 <mapper namespace="site.metacoding.firstproject.domain.employee.EmployeeDao">
 
 	<insert id="insert">
-		INSERT INTO employee(NAME, created_at) VALUES(#{name}, NOW());
+		insert into employee(employee_username, employee_password, employee_location) 
+		VALUES(#{employeeUsername}, #{employeePassword}, #{employeeLocation});
 	</insert>
 
 	<select id="findAll"
 		resultType="site.metacoding.firstproject.domain.employee.Employee">
+		SELECT *
+		FROM employee
 	</select>
 
 	<select id="findById"

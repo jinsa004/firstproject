@@ -18,7 +18,7 @@ public class EmployeeDaoTest {
 	@Autowired
 	private EmployeeDao employeeDao;
 
-	@Test
+	/* @Test
 	public void findByIdTest() {
 		// given
 		Integer employeeId = 1;
@@ -28,5 +28,22 @@ public class EmployeeDaoTest {
 
 		// then
 		assertEquals("이성지", employeePS.getEmployeeName());
-	}
+	} */
+
+
+	/* @Test
+	public void insertTest(){
+		// given
+		String employeeUsername = "1234";
+		String employeePassword = "1234";
+		String employeeLocation = "1234";
+
+		Employee employeePS = new Employee(employeeUsername, employeePassword, employeeLocation);
+		// when
+		int result = employeeDao.insert(employeePS);
+		System.out.println(employeePS.getEmployeeUsername());
+		
+		// then
+		assertEquals(1, result);
+	} */
 }

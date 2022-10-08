@@ -10,6 +10,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
     </head>
     <body>
         <form>
+            아이디<br>
             <div class="mb-3 mt-3">
                 <input
                     id="employeeName"
@@ -18,6 +19,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                     placeholder="Enter title"
                 />
             </div>
+            비밀번호<br>
             <div class="mb-3 mt-3">
                 <input
                     id="employeeUsername"
@@ -26,23 +28,35 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                     placeholder="Enter title"
                 />
             </div>
-            <div class="mb-3 mt-3">
-                <input
-                    id="employeeLocation"
-                    type="text"
-                    class="form-control"
-                    placeholder="Enter title"
-                />
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <button onclick="goPopup()" type="button" class="btn btn-success float-right">주소찾기</button>
+                <input type="text" class="form-control" placeholder="Enter address" id="address" name="address" required="required" readonly="readonly">
             </div>
             <button id="btnInsert" type="button" class="btn btn-primary">
-                완료
+                가입
             </button>
         </form>
+
+
+
 
         <script>
             $("#btnInsert").click(() => {
                 insert();
             });
+
+
+            function goPopup() {
+                var pop = window.open("/address/jusoPopup", "pop",
+                "width=570,height=420, scrollbars=yes, resizable=yes");
+            }
+
+            function jusoCallBack(roadFullAddr) {
+                $('#address').val(roadFullAddr);
+            }
+
+
 
             function insert() {
                 let data = {
