@@ -32,7 +32,7 @@ public class Resume {
     private String careerDepartment;
     private String careerTask;
     private Integer jobId;
-    private boolean isMain;
+    private Integer isMain;
     private Timestamp createdAt;
 
 

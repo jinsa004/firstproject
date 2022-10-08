@@ -3,8 +3,10 @@ package site.metacoding.firstproject.domain.application;
 import java.sql.Timestamp;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@NoArgsConstructor
 @Setter
 @Getter
 public class Application {

@@ -15,4 +15,7 @@ public interface ResumeDao {
 
     public List<Resume> findByEmployeeId(Integer employeeId);
 
+    public void setAllIsMainFalse(Integer resumeId);
+
+    public void updateMain(Integer resumeId);
 }

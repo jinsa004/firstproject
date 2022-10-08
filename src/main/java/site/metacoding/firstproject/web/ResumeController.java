@@ -30,17 +30,42 @@ public class ResumeController {
     private final ResumeService resumeService;
     private final EmployeeService employeeService;
 
-    @GetMapping("/resume/resumeList/{employeeId}")
+
+    @GetMapping("/doro")
+    public String doroAPI() {
+        return "/address/jusoPopup";
+    }
+
+
+
+    @GetMapping("/resume/myResumeList/{employeeId}")
     public String myResumeList(@PathVariable Integer employeeId, Model model) {
         List<Resume> resumePS = resumeService.내이력서가져오기(employeeId);
         model.addAttribute("resumePS", resumePS);
         return "/resume/myResumeList";
     }
 
+
+    @PutMapping("/resume/setMainResume/{resumeId}")
+    public @ResponseBody CMRespDto<?> setMainResume(@PathVariable Integer resumeId){
+        resumeService.메인이력서등록(resumeId);
+        return new CMRespDto<>(1, "메인 이력서 등록 성공", null);
+    }
+
+
+
+    @GetMapping("/resume/selectResume/{employeeId}")
+    public String selectResume(@PathVariable Integer employeeId, Model model) {
+        List<Resume> resumePS = resumeService.내이력서가져오기(employeeId);
+        model.addAttribute("resumePS", resumePS);
+        return "/resume/selectResume";
+    }
+
+
     @PostMapping("/resume/applicate")
-    public String applicateByResumeId(Application application) {
+    public @ResponseBody CMRespDto<?> applicateByResumeId(@RequestBody Application application) {
         resumeService.지원하기(application);
-        return "redirect:/";
+        return new CMRespDto<>(1, "공고 지원 성공", null);
     }
 
     @GetMapping("/resume/insertForm/{employeeId}")

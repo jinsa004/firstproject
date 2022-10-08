@@ -116,4 +116,40 @@ public class ResumeDaoTest {
 		// then
 		assertEquals(2, resumePS.size());
 	} */
+
+	/* @Test
+	public void setAllIsMainFalseTest(){
+		// given
+		Integer resumeId = 6;
+
+		Resume resumePS = resumeDao.findById(resumeId);
+		assertTrue(resumePS == null ? false : true);
+
+
+		// when
+		int result = resumeDao.setAllIsMainFalse(resumeId);
+		// employeeId의 값이 (resumeId가 1번인 employeed)와 같은 resumeId의 main값을 전부 false로 바꿈
+		// -> 집 컴퓨터 기준 3개의 테이블값이 변경 되어야 함
+		System.out.println(resumePS.getResumeName());
+
+		// then
+		assertEquals(3, result);
+	} */ 
+
+
+	/* @Test
+	public void updateMain(){
+		// given
+		Integer resumeId=2;
+
+		Resume resumePS = resumeDao.findById(resumeId);
+		assertTrue(resumePS == null ? false : true);
+		// when
+		int result = resumeDao.updateMain(resumePS.getResumeId());
+		System.out.println(resumePS.getResumeName());
+
+		// then
+		assertEquals(1, result);
+	} */
+
 }

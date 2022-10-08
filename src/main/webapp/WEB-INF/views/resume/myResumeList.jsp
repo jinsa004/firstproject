@@ -9,48 +9,38 @@ uri="http://java.sun.com/jsp/jstl/core"%>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     </head>
     <body>
-        <input id="noticeId" type="hidden" value="3" />
-        <ul>
-            <select id="resumeId" class="form-control">
-                <c:forEach var="resumePS" items="${resumePS}">
-                    <option value="${resumePS.resumeId}">
-                        ${resumePS.resumeId}
-                    </option>
-                </c:forEach>
-            </select>
-            <button id="btnInsert">등록</button>
-        </ul>
-
+        <form>
+            이력서<br>
+            <c:forEach var="resumePS" items="${resumePS}">
+            <input type='radio' id='resumeId' name='radio' value="${resumePS.resumeId}"/>${resumePS.resumeName}
+            <br>
+            </c:forEach>
+        </form>
+        <button id="btnSetMain">메인 이력서 등록</button>
         <script>
-            $("#btnInsert").click(() => {
-                insert();
+            $("#btnSetMain").click(() => {
+                setMain();
             });
 
-            function insert() {
-                let data = {
-                    resumeId: $("#resumeId").val(),
-                    noticeId: $("#noticeId").val(),
-                };
+            function setMain() {                
+                    resumeId = $('input[id=resumeId]:checked').val();
 
-                console.log(data.resumeId);
-                console.log(data.noticeId);
-
-                /*                 $.ajax("/resume/applicate", {
-                    type: "POST",
+                $.ajax("/resume/setMainResume/" + resumeId, {
+                    type: "PUT",
                     dataType: "json", // 응답 데이터
-                    data: JSON.stringify(data), // http body에 들고갈 요청 데이터
+                    data: JSON.stringify(resumeId), // http body에 들고갈 요청 데이터
                     headers: {
                         // http header에 들고갈 요청 데이터
                         "Content-Type": "application/json; charset=utf-8",
                     },
                 }).done((res) => {
                     if (res.code == 1) {
-                        alert("공고 지원 완료");
+                        alert("메인 이력서 등록 완료");
                         location.href = "/";
                     } else {
-                        alert("지원에 실패하였습니다");
+                        alert("메인 이력서 등록에 실패하였습니다");
                     }
-                }); */
+                });
             }
         </script>
     </body>

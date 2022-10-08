@@ -3,6 +3,7 @@ package site.metacoding.firstproject.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
 import site.metacoding.firstproject.domain.application.Application;
@@ -17,6 +18,13 @@ public class ResumeService {
 
     private final ResumeDao resumeDao;
     private final ApplicationDao applicationDao;
+
+    @Transactional
+    public void 메인이력서등록(Integer resumeId) {
+        resumeDao.setAllIsMainFalse(resumeId);
+        resumeDao.updateMain(resumeId);
+    }
+
 
     public void 지원하기(Application application) {
         applicationDao.insert(application);

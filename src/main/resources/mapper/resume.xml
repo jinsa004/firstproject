@@ -53,4 +53,18 @@ WHERE employee_id = #{employeeId}
 DELETE FROM resume WHERE resume_id = #{resumeId}
 </delete>
 
+
+<update id="setAllIsMainFalse">
+UPDATE resume SET
+is_main = false
+WHERE employee_id = (select employee_id from resume WHERE resume_id=#{resumeId})
+</update>
+
+
+<update id="updateMain">
+UPDATE resume SET
+is_main = true
+WHERE resume_id = #{resumeId}
+</update>
+
 </mapper>
