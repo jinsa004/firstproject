@@ -19,7 +19,7 @@ public class ResumeService {
     private final ResumeDao resumeDao;
     private final ApplicationDao applicationDao;
 
-    @Transactional
+
     public void 메인이력서등록(Integer resumeId) {
         resumeDao.updateMain(resumeId);
     }
