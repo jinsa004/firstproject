@@ -5,8 +5,8 @@
 <mapper namespace="site.metacoding.firstproject.domain.employee.EmployeeDao">
 
 	<insert id="insert">
-		insert into employee(employee_username, employee_password, employee_location) 
-		VALUES(#{employeeUsername}, #{employeePassword}, #{employeeLocation});
+		insert into employee(employee_name, employee_birth, employee_sex, employee_username, employee_password, employee_email, employee_tel, employee_location, job_id) 
+		VALUES(#{employeeName}, #{employeeBirth}, #{employeeSex}, #{employeeUsername}, #{employeePassword}, #{employeeEmail}, #{employeeTel}, {employeeLocation}, #{jobId});
 	</insert>
 
 	<select id="findAll"

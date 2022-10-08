@@ -14,8 +14,10 @@ VALUES(#{resumeName}, #{employeeId}, #{resumeImage}, #{highschoolName}, #{highsc
 
 <select id="findById" resultType="site.metacoding.firstproject.domain.resume.Resume">
 SELECT *
-FROM resume
-WHERE resume_id=#{resumeId}
+FROM resume r
+INNER JOIN employee e
+ON r.employee_id = e.employee_id
+WHERE r.resume_id=#{resumeId}
 </select>
 
 
@@ -57,7 +59,7 @@ DELETE FROM resume WHERE resume_id = #{resumeId}
 <update id="updateMain">
 UPDATE resume 
 SET is_main =  case when resume_id=#{resumeId} then 1 ELSE 0 END
-WHERE employee_id = (select employee_id from resume WHERE resume_id=#{resumeId});
+WHERE employee_id = (select employee_id from resume WHERE resume_id=#{resumeId})
 </update>
 
 </mapper>

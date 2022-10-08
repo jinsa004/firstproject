@@ -35,10 +35,16 @@ public class Resume {
     private Integer isMain;
     private Timestamp createdAt;
 
+    private String employeeName;
+    private String employeeSex;
+    private String employeeBirth;
+    private String employeeEmail;
+    private String employeeTel;
+    private String employeeLocation;
 
     public void update(UpdateDto updateDto) {
         this.resumeName = updateDto.getResumeName();
-        this.employeeId = updateDto.getEmployeeId();       
+        this.employeeId = updateDto.getEmployeeId();
         this.resumeImage = updateDto.getResumeImage();
         this.highschoolName = updateDto.getHighschoolName();
         this.highschoolStartdate = updateDto.getHighschoolStartdate();
