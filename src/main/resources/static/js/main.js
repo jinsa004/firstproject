@@ -1,14 +1,12 @@
-$("ul.tabs li").click(function(){
+$("ul.tabs li").click(function () {
   var tab_id = $(this).attr("data-tab");
   $("ul.tabs li").removeClass("on");
   $(".tab-content").removeClass("on");
   $(".tab-content").hide();
   $(this).addClass("on");
-  $("#"+tab_id).addClass("on");
-  $("#"+tab_id).show();
-})
-
-
+  $("#" + tab_id).addClass("on");
+  $("#" + tab_id).show();
+});
 
 $("#btnDelete").click(() => {
   DeletestadiumList();
@@ -72,6 +70,37 @@ function login() {
   });
   //람다식을 사용하면 코드가 간결해지고, 스코프가 명확해진다.
 }
+
+//------------------------------------------회원가입-------------------------------------------------------------
+$("#btn_join").click(function () {
+  let data = {
+    employeeUsername: $("#id").val(), // 자바스크립트 object를 jquery로 가져옴
+    employeePassword: $("#password").val(), // 자바스크립트 object를 jquery로 가져옴
+    employeeSex: $("#sex").val(),
+    employeeEmail: $("#email").val(), // 자바스크립트 object를 jquery로 가져옴
+    employeeName: $("#u_name").val(),
+    employeeBirth: $("#u_birth").val(),
+    employeeTel: $("#u_phone").val(),
+    employeeLocation: $("#u_adress").val(),
+  };
+  $.ajax({
+    url: "/popOpen2",
+    type: "POST",
+    dataType: "json",
+    data: JSON.stringify(data), // body // 데이터 전송할 때 json으로 변경해서 전송
+    headers: {
+      "Content-Type": "application/json", // json데이터를 날릴거야!
+    },
+  }).done((res) => {
+    if (res.code == 1) {
+      alert("회원가입 성공");
+      location.reload();
+    }
+  });
+});
+// 0. 통신 오브젝트 생성 (post요청이기때문에 body가 있음)
+
+// 팝업창
 
 function popOpen() {
   let modalPop = $(".modal_login_wrap");
@@ -148,4 +177,3 @@ function popCloseRecruit() {
   $(modalPop).hide();
   $(modalBg).hide();
 }
-

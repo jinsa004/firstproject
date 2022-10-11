@@ -138,7 +138,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                     id="id"
                     type="text"
                     placeholder="아이디를 입력하세요."
-                    value="${username}"
+                    value="${employeeUsername}"
                     maxlength="20"
                   />
                 </span>
@@ -160,14 +160,14 @@ uri="http://java.sun.com/jsp/jstl/core"%>
               </div>
               <div class="join_pw2 join_box">
                 <h3>
-                  <label for="password2">비밀번호 재확인</label>
+                  <label for="sex">비밀번호 재확인</label>
                 </h3>
                 <span>
                   <input
-                    id="password2"
-                    type="password"
+                    id="sex"
+                    type="text"
                     placeholder="패스워드를 입력하세요."
-                    name="password"
+                    name="sex"
                     maxlength="20"
                   />
                 </span>
@@ -317,6 +317,4 @@ uri="http://java.sun.com/jsp/jstl/core"%>
       </div>
     </div>
   </body>
-
-  
 </html>
