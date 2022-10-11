@@ -13,7 +13,7 @@
 </head>
 
 <body>
-
+<input id="companyId" type="hidden" value="${companyPS.companyId}" />
 <div class="p-5 border text-center">
   <h1>기업 정보 관리</h1>
 </div>
@@ -93,9 +93,40 @@
       </div>
       <!-- login -->
 
+      <div id="field_info" class="form">
+        <div class="form_title">
+          <h2 class="title">관심분야</h2>
+        </div>
+        <div class="field_select">
+            <form method="post" action="/#">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="프론트엔드" name="프론트엔드" value="프론트엔드">
+                <label class="form-check-label" for="프론트엔드">프론트엔드</label>
+              </div>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="백엔드" name="백엔드" value="백엔드">
+                <label class="form-check-label" for="백엔드">백엔드</label>
+              </div>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="풀스택" name="풀스택" value="풀스택">
+                <label class="form-check-label" for="풀스택">풀스택</label>
+              </div>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="안드로이드" name="안드로이드" value="안드로이드">
+                <label class="form-check-label" for="chec안드로이드k1">안드로이드</label>
+              </div>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="IOS" name="IOS" value="IOS">
+                <label class="form-check-label" for="IOS">IOS</label>
+              </div>
+            </form>
+        </div>
+      </div>
+      <!-- field -->
+
       <div class="btn_group">
         <div class="update_btn">
-          <button type="button" onclick="location.href='#'">등록완료</button>
+          <button id="btn_update" type="button" onclick="location.href='#'">등록완료</button>
         </div>
         <div class="delete_btn">
           <button type="button" onclick="location.href='#'">회원탈퇴</button>
@@ -115,4 +146,42 @@
 <!-- footer -->
 
 </body>
+
+<script>
+$("btn_update").click(()=>{
+  update()
+});
+
+function update(){
+
+  let companyId = $("companyId").val();
+
+  let data ={
+    companyNumber:$("companyNumber").val(),
+    companyName:$("companyName").val(),
+    companyEmail:$("companyEmail").val(),
+    companyTel:$("companyTel").val(),
+    companyLocation:$("companyLocation").val(),
+    companyUsername:$("companyUsername").val(),
+    companyPassword:$("companyPassword").val()
+    
+  }
+
+  $.ajax("/co/companyUpdate" + companyId, {
+      type: "PUT",
+      dataType: "json",
+      data: JSON.stringify(data),
+      headers: {
+          "Content-Type": "application/json; charset=utf-8",
+      },
+  }).done((res) => {
+      if (res.code == 1) {
+          alert("이력서 수정 완료");
+          location.href = "/";
+      } else {
+          alert("업데이트에 실패하였습니다");
+      }
+  });          
+}
+</script>
 </html>
