@@ -6,7 +6,9 @@
 
 	<select id="findAll" resultType="site.metacoding.firstproject.domain.company.Company"></select>
 
-	<select id="findById" resultType="site.metacoding.firstproject.domain.company.Company"></select>
+	<select id="findById" resultType="site.metacoding.firstproject.domain.company.Company">
+		SELECT * FROM company WHERE company_Id=#{companyId}
+	</select>
 
 	<update id="update">
 		UPDATE product 
