@@ -54,11 +54,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
               로그인
             </button>
 
-            <button
-              class="btn_join"
-              type="button"
-              onClick="javascript:popOpen2();"
-            >
+            <button class="btn_join" type="button" onClick="popOpen2();">
               회원가입
             </button>
             <a href="/mainCompany" class="btn_company">기업 서비스</a
@@ -123,7 +119,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
         </div>
       </div>
 
-      <div class="modal_join_bg" onClick="javascript:popClose2();"></div>
+      <div class="modal_join_bg" onClick="popClose2();"></div>
       <div class="modal_join_wrap">
         <h2>회원가입</h2>
         <div class="form_box cf">
@@ -316,5 +312,49 @@ uri="http://java.sun.com/jsp/jstl/core"%>
         </div>
       </div>
     </div>
+
+    <script type="text/javascript">
+      function popOpen2() {
+        let modalPop = $(".modal_join_wrap");
+        let modalBg = $(".modal_join_bg");
+
+        $(modalPop).show();
+        $(modalBg).show();
+      }
+      function popClose2() {
+        let modalPop = $(".modal_join_wrap");
+        let modalBg = $(".modal_join_bg");
+
+        $(modalPop).hide();
+        $(modalBg).hide();
+      }
+
+      function popOpen2() {
+        let data = {
+          employeeUsername: $("#id").val(), // 자바스크립트 object를 jquery로 가져옴
+          employeePassword: $("#password").val(), // 자바스크립트 object를 jquery로 가져옴
+          employeeSex: $("#sex").val(),
+          employeeEmail: $("#email").val(), // 자바스크립트 object를 jquery로 가져옴
+          employeeName: $("#u_name").val(),
+          employeeBirth: $("#u_birth").val(),
+          employeeTel: $("#u_phone").val(),
+          employeeLocation: $("#u_adress").val(),
+        };
+        $.ajax({
+          url: "/popOpen2",
+          type: "POST",
+          dataType: "json",
+          data: JSON.stringify(data), // body // 데이터 전송할 때 json으로 변경해서 전송
+          headers: {
+            "Content-Type": "application/json; charset=utf-8", // json데이터를 날릴거야!
+          },
+        }).done((res) => {
+          if (res.code == 1) {
+            alert("회원가입 성공");
+            location.reload();
+          }
+        });
+      }
+    </script>
   </body>
 </html>

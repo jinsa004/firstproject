@@ -5,6 +5,7 @@ import java.io.Console;
 import javax.xml.crypto.Data;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,7 +22,7 @@ public class loginController {
 
 	private final employeeService employeeService;
 
-	@PostMapping("/main")
+	@PostMapping("/popOpen2")
 	public @ResponseBody CMRespDto<?> employeeJoin(@RequestBody EmployeeJoinDto employeeJoinDto) {
 		employeeService.employeeJoin(employeeJoinDto);
 		return new CMRespDto<>(1, "회원가입성공", null);
