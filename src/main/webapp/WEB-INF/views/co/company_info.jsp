@@ -8,6 +8,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <link href="css/reset.css" rel="stylesheet">
   <link href="css/main.css" rel="stylesheet">
 </head>
@@ -27,9 +28,9 @@
         <div class="basic_form">
           <dl class="info_basic">
             <dt class="info_list_item">회사명</dt>
-            <input type="text" id="company_name" name="company_name" class="box_input" value="${company.companyName}" placeholder="회사명을 입력하세요"/>
+            <input type="text" id="companyName" name="company_name" class="box_input" value="${company.companyName}" placeholder="회사명을 입력하세요"/>
             <dt class="info_list_item">사업자번호</dt>
-            <input type="text" id="company_number" name="company_number" class="box_input" value="${company.companyNumber}" placeholder="사업자번호를 입력하세요"/>
+            <input type="text" id="companyNumber" name="company_number" class="box_input" value="${company.companyNumber}" placeholder="사업자번호를 입력하세요"/>
           </dl>
         </div>
       </div>
@@ -45,7 +46,7 @@
               <p class="contact_list_item">휴대폰</p>
             </div>
             <div class="contact_input">
-              <input type="text" id="company_tel" name="company_tel" class="box_input" value="${company.companyTel}" placeholder="휴대폰 번호을 입력하세요"/>
+              <input type="text" id="companyTel" name="company_tel" class="box_input" value="${company.companyTel}" placeholder="휴대폰 번호을 입력하세요"/>
             </div>
           </div>
           <div class="contact_row">
@@ -53,7 +54,7 @@
               <p class="contact_list_item">이메일</p>
             </div>
             <div class="contact_input">
-              <input type="text" id="company_email" name="company_email" class="box_input" value="${company.companyEmail}" placeholder="이메일을 입력하세요"/>
+              <input type="text" id="companyEmail" name="company_email" class="box_input" value="${company.companyEmail}" placeholder="이메일을 입력하세요"/>
             </div>
           </div>
           <div class="contact_row">
@@ -61,7 +62,7 @@
               <p class="contact_list_item">기업 주소</p>
             </div>
             <div class="contact_input">
-              <input type="text" id="company_location" name="company_location" class="box_input" value="${company.companyLocation}" placeholder="상세주소를 입력하세요"/>
+              <input type="text" id="companyLocation" name="company_location" class="box_input" value="${company.companyLocation}" placeholder="상세주소를 입력하세요"/>
             </div>
           </div>
         </div>
@@ -78,7 +79,7 @@
               <p class="login_list_item">ID</p>
             </div>
             <div class="login_input">
-              <input type="text" id="company_id" name="company_id" class="box_input" value="${company.companyUsername}" placeholder="아이디를 입력하세요"/>
+              <input type="text" id="companyUsername" name="company_id" class="box_input" value="${company.companyUsername}" placeholder="아이디를 입력하세요"/>
             </div>
           </div>
           <div class="login_row">
@@ -86,7 +87,7 @@
               <p class="login_list_item">Password</p>
             </div>
             <div class="login_input">
-              <input type="text" id="company_password" name="company_password" class="box_input" value="${company.companyPassword}" placeholder="비밀번호를 입력하세요"/>
+              <input type="text" id="companyPassword" name="company_password" class="box_input" value="${company.companyPassword}" placeholder="비밀번호를 입력하세요"/>
             </div>
           </div>
         </div>
@@ -126,10 +127,10 @@
 
       <div class="btn_group">
         <div class="update_btn">
-          <button id="btn_update" type="button" onclick="location.href='#'">등록완료</button>
+          <button id="btn_update" type="button">등록완료</button>
         </div>
         <div class="delete_btn">
-          <button type="button" onclick="location.href='#'">회원탈퇴</button>
+          <button type="button">회원탈퇴</button>
         </div>
       </div>
       <!-- btn -->
@@ -148,36 +149,37 @@
 </body>
 
 <script>
-$("btn_update").click(()=>{
-  update()
+$("#btn_update").click(()=>{
+  update();
 });
 
 function update(){
 
-  let companyId = $("companyId").val();
+  let companyId = $("#companyId").val();
 
   let data ={
-    companyNumber:$("companyNumber").val(),
-    companyName:$("companyName").val(),
-    companyEmail:$("companyEmail").val(),
-    companyTel:$("companyTel").val(),
-    companyLocation:$("companyLocation").val(),
-    companyUsername:$("companyUsername").val(),
-    companyPassword:$("companyPassword").val()
-    
-  }
+    companyNumber:$("#companyNumber").val(),
+    companyName:$("#companyName").val(),
+    companyEmail:$("#companyEmail").val(),
+    companyTel:$("#companyTel").val(),
+    companyLocation:$("#companyLocation").val(),
+    companyUsername:$("#companyUsername").val(),
+    companyPassword:$("#companyPassword").val()
+  };
+  console.log(data);
 
-  $.ajax("/co/companyUpdate" + companyId, {
+  $.ajax("/co/companyUpdate/" + companyId, {
       type: "PUT",
       dataType: "json",
       data: JSON.stringify(data),
       headers: {
-          "Content-Type": "application/json; charset=utf-8",
-      },
+          "Content-Type": "application/json; charset=utf-8"
+      }
   }).done((res) => {
       if (res.code == 1) {
-          alert("이력서 수정 완료");
-          location.href = "/";
+          alert("기업정보수정 완료");
+          console.log("등록");
+          location.reload;
       } else {
           alert("업데이트에 실패하였습니다");
       }

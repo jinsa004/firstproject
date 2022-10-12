@@ -27,7 +27,7 @@ public class CompanyController {
     return "co/company_info";
   }
 
-  @PutMapping("/co/companyUpdate/1")
+  @PutMapping("/co/companyUpdate/{companyId}")
   public @ResponseBody CMRespDto<?> companyUpdate(@PathVariable Integer companyId, @RequestBody UpdateDto updateDto) {
     companyService.기업회원정보수정(companyId, updateDto);
     return new CMRespDto<>(1, "수정성공", null);
