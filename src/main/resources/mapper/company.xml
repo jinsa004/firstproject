@@ -2,7 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="site.metacoding.firstproject.domain.company.CompanyDao">
 
-	<insert id="insert"></insert>
+	<insert id="insert">
+		INSERT INTO company(company_number, company_name, company_email, company_tel, company_location, job_id, company_username, company_password)
+		VALUES(#{companyNumber}, #{companyName}, #{companyEmail}, #{companyTel}, #{companyLocation}, #{jobId}, #{companyUsername}, #{companyPassword});
+	</insert>
 
 	<select id="findAll" resultType="site.metacoding.firstproject.domain.company.Company"></select>
 
@@ -12,14 +15,14 @@
 
 	<update id="update">
 		UPDATE product 
-		SET company_number = #{companyNumber}
-		company_name = #{companyName}
-		company_email = #{companyEmail}
-		company_tel = #{companyTel}
-		company_location = #{companyLocation}
-		company_username = #{companyUsername}
-		company_password = #{companyPassword}
-		job_id = #{jobId}
+		SET company_number = #{companyNumber},
+		company_name = #{companyName},
+		company_email = #{companyEmail},
+		company_tel = #{companyTel},
+		company_location = #{companyLocation},
+		company_username = #{companyUsername},
+		company_password = #{companyPassword},
+		job_id = #{jobId},
     WHERE company_id = #{companyId}
 	</update>
 

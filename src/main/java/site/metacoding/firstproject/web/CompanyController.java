@@ -33,4 +33,9 @@ public class CompanyController {
     return new CMRespDto<>(1, "수정성공", null);
   }
 
+  @GetMapping("/co/companyMain")
+  public String companyMain() {
+    return "co/company_main";
+  }
+
 }

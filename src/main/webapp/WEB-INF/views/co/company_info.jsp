@@ -178,7 +178,7 @@ function update(){
   }).done((res) => {
       if (res.code == 1) {
           alert("기업정보수정 완료");
-          console.log("등록");
+          console.log(res);
           location.reload;
       } else {
           alert("업데이트에 실패하였습니다");
